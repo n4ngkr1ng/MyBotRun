@@ -154,6 +154,11 @@
 #include "functions\Android\UniversalCloseWaitOpenCoC.au3"
 #include "functions\Android\AndroidEmbed.au3"
 
+; ExtremeZap - Added by TheRevenor
+#include "functions\Mod\SmartZap\ExtremeZap.au3"
+; SmartZap files - Added by LunaEclipse
+#include "functions\Mod\SmartZap\smartZap.au3"
+
 #include "functions\Other\WerFaultClose.au3"
 #include "functions\Other\_NumberFormat.au3"
 #include "functions\Other\_PadStringCenter.au3"
@@ -224,6 +229,7 @@
 #include "functions\Search\FindTownHall.au3"
 #include "functions\Search\IsSearchModeActive.au3"
 #include "functions\Search\IsSearchAttackEnabled.au3"
+#include "functions\Search\drillSearch.au3"
 
 #include "functions\Village\BoostBarracks.au3"
 #include "functions\Village\BotDetectFirstTime.au3"

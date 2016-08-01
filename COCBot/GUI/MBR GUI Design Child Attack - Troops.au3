@@ -395,6 +395,64 @@ Local $x = $xStart + 25, $y = $yStart +  80 + 25 - 60
 			;GUICtrlSetState(-1, $GUI_DISABLE)
 			GUICtrlSetOnEvent(-1, "lblTotalCountSpell")
 		$lblTimesSkeletonS = GUICtrlCreateLabel("x", $x + 137, $y, -1, -1)
+
+    ; SmartZap Settings
+	Local $x = $xStart + 210, $y = $yStart + 45
+	$grpStatsMisc = GUICtrlCreateGroup("Smart Zap && Extreme Zap", $x - 20, $y - 20, 438, 148) ;120
+		GUICtrlCreateIcon($pIconLib, $eIcnLightSpell, $x - 10, $y + 20, 24, 24)
+		GUICtrlCreateIcon($pIconLib, $eIcnDrill, $x - 10, $y - 7, 24, 24)
+		$chkSmartLightSpell = GUICtrlCreateCheckbox("Use Lightning Spells to SmartZap Drills", $x + 20, $y - 5, -1, -1)
+			$txtTip = "Check this to drop Lightning Spells on top of Dark Elixir Drills." & @CRLF & @CRLF & _
+					  "Remember to go to the tab 'troops' and put the maximum capacity " & @CRLF & _
+					  "of your spell factory and the number of spells so that the bot " & @CRLF & _
+					  "can function perfectly."
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlSetOnEvent(-1, "chkSmartLightSpell")
+			GUICtrlSetState(-1, $GUI_UNCHECKED)
+		$chkExtLightSpell = GUICtrlCreateCheckbox("Use ExtremeZap To Zap Dark Drill", $x + 20, $y + 21, -1, -1)
+			$txtTip = "Check this to drop Extreme lightning spells on Dark Elixir Drills," & @CRLF & @CRLF & _
+					  "__If You Do Not Like SmartZap, This Is The Right Choice.__"
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlSetOnEvent(-1, "ExtLightSpell")
+			GUICtrlSetState(-1, $GUI_UNCHECKED)
+		$chkSmartZapDB = GUICtrlCreateCheckbox("Only Zap Drills in Dead Bases", $x + 20, $y + 47, -1, -1)
+			$txtTip = "It is recommended you only zap drills in dead bases as most of the " & @CRLF & _
+					  "Dark Elixir in a live base will be in the storage."
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlSetOnEvent(-1, "chkSmartZapDB")
+			GUICtrlSetState(-1, $GUI_CHECKED)
+			GUICtrlSetState(-1, $GUI_DISABLE)
+		$lblSmartZap = GUICtrlCreateLabel("Min. amount of Dark Elixir:", $x + 0, $y + 74, 160, -1, $SS_RIGHT) ;-20
+		$txtMinDark = GUICtrlCreateInput("250", $x + 180, $y + 69, 35, 21, BitOR($GUI_SS_DEFAULT_INPUT, $ES_CENTER, $ES_NUMBER)) ;+ 45
+		    $txtTip = "The value here depends a lot on what level your Town Hall is, " & @CRLF & _
+					  "and what level drills you most often see." & @CRLF & @CRLF & _
+					  "Input The Min Dark Elixir If You Want To Extreme Drill Zap"
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlSetLimit(-1, 4)
+			GUICtrlSetOnEvent(-1, "txtMinDark")
+			GUICtrlSetState(-1, $GUI_DISABLE)
+		$chkSmartZapSaveHeroes = GUICtrlCreateCheckbox("Don't Zap on Town Hall Snipe when Heroes Deployed", $x + 20, $y + 94, -1, -1) ;69
+			$txtTip = "This will stop SmartZap from zapping a base on a Town Hall Snipe " & @CRLF & _
+					  "if your heroes were deployed. " & @CRLF & @CRLF & _
+					  "This protects their health so they will be ready for battle sooner!"
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlSetOnEvent(-1, "chkSmartZapSaveHeroes")
+			GUICtrlSetState(-1, $GUI_UNCHECKED)
+			;GUICtrlSetState(-1, $GUI_CHECKED)
+			GUICtrlSetState(-1, $GUI_DISABLE)
+	Local $x = 236, $y = 25
+		$picSmartZap = GUICtrlCreateIcon($pIconLib, $eIcnDark, $x + 160, $y + 3, 24, 24)
+		$lblSmartZap = GUICtrlCreateLabel("0", $x + 60, $y + 5, 80, 30, $SS_RIGHT)
+			GUICtrlSetFont(-1, 16, $FW_BOLD, Default, "arial", $CLEARTYPE_QUALITY)
+			GUICtrlSetColor(-1, 0x279B61)
+			$txtTip = "Number of dark elixir zapped during the attack with lightning."
+			GUICtrlSetTip(-1, $txtTip)
+			GUICtrlCreateIcon($pIconLib, $eIcnLightSpell, $x + 160, $y + 40, 24, 24)
+		$lblLightningUsed = GUICtrlCreateLabel("0", $x + 60, $y + 40, 80, 30, $SS_RIGHT)
+			GUICtrlSetFont(-1, 16, $FW_BOLD, Default, "arial", $CLEARTYPE_QUALITY)
+			GUICtrlSetColor(-1, 0x279B61)
+			$txtTip = "Amount of used spells."
+			GUICtrlSetTip(-1, $txtTip)
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 GUICtrlCreateTabItem("")
 

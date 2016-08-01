@@ -29,7 +29,11 @@ Func ReturnHome($TakeSS = 1, $GoldChangeCheck = True) ;Return main screen
 			SetLog("Checking if the battle has finished", $COLOR_BLUE)
 			While GoldElixirChangeEBO()
 				If _Sleep($iDelayReturnHome1) Then Return
-			WEnd
+				WEnd
+
+			; Check to see if we should zap the DE Drills - Added by LunaEclipse
+			If IsAttackPage() Then (smartZap() Or ExtremeZap())
+
 			;If Heroes were not activated: Hero Ability activation before End of Battle to restore health
 			If ($checkKPower = True Or $checkQPower = True) And $iActivateKQCondition = "Auto" Then
 				;_CaptureRegion()
