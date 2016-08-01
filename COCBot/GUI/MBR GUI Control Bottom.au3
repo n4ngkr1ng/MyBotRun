@@ -137,11 +137,12 @@ Func IsStopped()
 EndFunc   ;==>IsStopped
 
 Func btnStart()
-	; decide when to run
+   ; decide when to run
 	EnableControls($frmBotBottom, False, $frmBotBottomCtrlState)
 	Local $RunNow = $BotAction <> $eBotNoAction
 	If $RunNow Then
 		BotStart()
+		AccStartInit()		;Chalicucu init COC Account environment
 	Else
 		$BotAction = $eBotStart
 	EndIf
