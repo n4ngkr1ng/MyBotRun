@@ -1474,7 +1474,6 @@ Global $cmbLvl11Fill
 Global $cmbLvl12Fill
 Global $toleranceOffset
 
-
 ;Apply to switch Attack Standard after THSnipe End ==>
 Global $ichkTSActivateCamps2, $iEnableAfterArmyCamps2
 ;==> Apply to switch Attack Standard after THSnipe End
