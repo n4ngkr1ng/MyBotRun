@@ -2575,7 +2575,7 @@ Func applyConfig($bRedrawAtExit = True) ;Applies the data from config to the con
 	Else
 		GUICtrlSetState($chkSmartZapSaveHeroes, $GUI_UNCHECKED)
 	EndIf
-	GUICtrlSetData($txtMinDark, $itxtMinDE
+	GUICtrlSetData($txtMinDark, $itxtMinDE)
 
 	;Wait For Spells
 	If $iEnableSpellsWait[$DB] = 1 Then
