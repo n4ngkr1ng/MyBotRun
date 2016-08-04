@@ -1,4 +1,3 @@
-
 ; #FUNCTION# ====================================================================================================================
 ; Name ..........: getArmySpellCount
 ; Description ...: Obtains count of spells available from Training - Army Overview window
@@ -147,3 +146,16 @@ Func GetCurTotalSpell()
 			$CurSkeletonSpell + _
 			$CurEarthSpell
 EndFunc   ;==>GetCurTotalSpell
+
+; #FUNCTION# ====================================================================================================================
+; Name ..........: GetCurTotalDarkSpell
+; Description ...: Returns total count of dark spells available after call to getArmySpellCount()
+; Return values .: Total current spell count or -1 when not yet read
+; ===============================================================================================================================
+Func GetCurTotalDarkSpell()
+	If $CurTotalSpell = False And $iTotalCountSpell > 0 Then Return -1
+	Return $CurPoisonSpell + _
+			$CurHasteSpell + _
+			$CurSkeletonSpell + _
+			$CurEarthSpell
+EndFunc   ;==>GetCurTotalDarkSpell
