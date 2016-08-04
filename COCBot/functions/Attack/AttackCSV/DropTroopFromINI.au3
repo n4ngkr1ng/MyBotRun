@@ -99,6 +99,8 @@ Func DropTroopFromINI($vectors, $indexStart, $indexEnd, $indexArray, $qtaMin, $q
 ;			If $ichkSkeletonSpell[$iMatchMode] = 0 Then $usespell = False
 	EndSwitch
 
+   If $delayPointmin = 0 Then $delayPointmin = 100
+   If $delayPointmax = 0 Then $delayPointmax = 500
 	If $troopPosition = -1 Or $usespell = False Then
 		If $usespell = True Then
 			Setlog("No troop found in your attack troops list")
@@ -147,6 +149,10 @@ Func DropTroopFromINI($vectors, $indexStart, $indexEnd, $indexArray, $qtaMin, $q
 					Else
 						Local $delayPoint = $delayPointmin
 					EndIf
+
+					; CSV Deployment Speed Mod
+					$delayPoint = $delayPoint / $isldSelectedCSVSpeed[$iMatchMode]
+					$delayDropLast = $delayDropLast / $isldSelectedCSVSpeed[$iMatchMode]
 
 					Switch Eval("e" & $troopName)
 						Case $eBarb To $eBowl ; drop normal troops
@@ -204,6 +210,7 @@ Func DropTroopFromINI($vectors, $indexStart, $indexEnd, $indexArray, $qtaMin, $q
 		Else
 			$sleepafter = Int($sleepafterMin)
 		EndIf
+		$sleepafter = $sleepafter / $isldSelectedCSVSpeed[$iMatchMode]
 		If $sleepafter > 0 And IsKeepClicksActive() = False Then
 			debugAttackCSV(">> delay after drop all troops: " & $sleepafter)
 			If $sleepafter <= 1000 Then  ; check SLEEPAFTER value is less than 1 second?

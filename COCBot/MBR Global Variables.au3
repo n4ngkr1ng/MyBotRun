@@ -1493,6 +1493,19 @@ Global $smartZapGain = 0
 Global $ExtremeZapGain = 0
 Global $numLSpellsUsed = 0
 
+;CSV Deployment Speed Mod
+Global $isldSelectedCSVSpeed[$iModeCount], $iCSVSpeeds[8]
+$isldSelectedCSVSpeed[$DB] = 3
+$isldSelectedCSVSpeed[$LB] = 3
+$iCSVSpeeds[0] = .25
+$iCSVSpeeds[1] = .5
+$iCSVSpeeds[2] = .75
+$iCSVSpeeds[3] = 1
+$iCSVSpeeds[4] = 1.25
+$iCSVSpeeds[5] = 1.5
+$iCSVSpeeds[6] = 1.75
+$iCSVSpeeds[7] = 2
+
 ; SmartZap Array to hold Total Amount of DE available from Drill at each level (1-6) - Added by LunaEclipse
 Global Const $drillLevelHold[6] = [120, _
 								   225, _

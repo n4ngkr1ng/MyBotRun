@@ -2452,9 +2452,16 @@ Func applyConfig($bRedrawAtExit = True) ;Applies the data from config to the con
 	EndIf
 	_GUICtrlComboBox_SetCurSel($cmbScriptNameAB, $tempindex)
 
-
 	cmbScriptNameDB()
 	cmbScriptNameAB()
+
+	; CSV Deployment Speed Mod
+	GUICtrlSetData($sldSelectedSpeedDB, $isldSelectedCSVSpeed[$DB])
+	GUICtrlSetData($sldSelectedSpeedAB, $isldSelectedCSVSpeed[$LB])
+
+	sldSelectedSpeedDB()
+	sldSelectedSpeedAB()
+
 	If $devmode = 1 Then GUICtrlSetState($chkmakeIMGCSV, $GUI_SHOW)
 	If $makeIMGCSV = 1 Then
 		GUICtrlSetState($chkmakeIMGCSV, $GUI_CHECKED)
