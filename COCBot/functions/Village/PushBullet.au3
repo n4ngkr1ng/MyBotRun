@@ -64,11 +64,17 @@ Func _RemoteControlPushBullet()
 						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " <" & $iOrigPushBullet & "> " & GetTranslated(620,22,"LASTRAID") & GetTranslated(620,10, " - send the last raid loot screenshot of <Village Name>")
 						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " <" & $iOrigPushBullet & "> " & GetTranslated(620,23,"LASTRAIDTXT") & GetTranslated(620,11, " - send the last raid loot values of <Village Name>")
 						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " <" & $iOrigPushBullet & "> " & GetTranslated(620,24,"SCREENSHOT") & GetTranslated(620,12, " - send a screenshot of <Village Name>")
-						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " ACC <account list>  - set new play list"
-						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " ADD <acc number> - add an account to play list"
-						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " REM <acc number> - remove an account from play list"
-						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " MAP <acc number>-<profile number> - set profile to an account. eg: BOT MAP 1-3"
-						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " MODE <mode ID> - set switching mode. Eg: BOT MODE 0"
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,21," ACC <account list>") & GetTranslated(638,26, " - set new play list")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,22," ADD <acc number>") & GetTranslated(638,27, " - add an account to play list")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,23," REM <acc number>") & GetTranslated(638,28, " - remove an account from play list")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,24," MAP <acc number>-<profile number>") & GetTranslated(638,29, " - set profile to an account. eg: BOT MAP 1-3")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,25," MODE <mode ID>") & GetTranslated(638,30, " - set switching mode. Eg: BOT MODE 0")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,2," PRO <profile number>") & GetTranslated(638,12, " - set new bot profiles")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,3," GETORDER") & GetTranslated(638,13, " - get current CoC account and bot profile")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,4," STOPSTART") & GetTranslated(638,14, " - stop then start bot again")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,5," ALLPRO <all profile number>") & GetTranslated(638,15, " - set up profiles correspond to all exists accounts")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,9," HIDE") & GetTranslated(638,19, " - hide android emulator")
+						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & GetTranslated(638,10," ATKP 1/0") & GetTranslated(638,20, " - 1-enable/0-disable attack plan")
 						$txtHelp &= '\n'
 						$txtHelp &= '\n' & GetTranslated(620,25, "Examples:")
 						$txtHelp &= '\n' & GetTranslated(620,1, -1) & " " & $iOrigPushBullet & " " & GetTranslated(620,18,"PAUSE")
@@ -187,7 +193,7 @@ Func _RemoteControlPushBullet()
 							_DeleteMessageOfPushBullet($iden[$x])
 						; ElseIf StringLeft($body[$x], 11) = "BOT ACSTATS" Then		;Chalicucu account stats
 							; Local $idx = Number(StringMid($body[$x], 13)) - 1
-							; If 0 > $idx Or $idx >= $nTotalCOCAcc Then 
+							; If 0 > $idx Or $idx >= $nTotalCOCAcc Then
 								; _DeleteMessageOfPushBullet($iden[$x])
 							; Else
 								; SetLog("Pushbullet: Your request has been received. Statistics sent", $COLOR_GREEN)
@@ -233,7 +239,7 @@ Func _RemoteControlPushBullet()
 							EndIf
 							_DeleteMessageOfPushBullet($iden[$x])
 						EndIf
-						
+
 						Local $lenstr = StringLen(GetTranslated(620,1, -1) & " " & StringUpper($iOrigPushBullet) & " " & "")
 						Local $teststr = StringLeft($body[$x], $lenstr)
 						If $teststr = (GetTranslated(620,1, -1) & " " & StringUpper($iOrigPushBullet) & " " & "") Then
