@@ -561,3 +561,52 @@ Func sldVSDelay()
 		GUICtrlSetData($lbltxtMaxVSDelay, GetTranslated(603, 8, "seconds"))
 	EndIf
 EndFunc   ;==>sldVSDelay
+
+Func chkSmartLightSpell()
+    If GUICtrlRead($chkSmartLightSpell) = $GUI_CHECKED Then
+		GUICtrlSetState($chkExtLightSpell, $GUI_DISABLE)
+        GUICtrlSetState($chkSmartZapDB, $GUI_ENABLE)
+        GUICtrlSetState($chkSmartZapSaveHeroes, $GUI_ENABLE)
+        GUICtrlSetState($txtMinDark, $GUI_ENABLE)
+        $ichkSmartZap = 1
+    Else
+		GUICtrlSetState($chkExtLightSpell, $GUI_ENABLE)
+        GUICtrlSetState($chkSmartZapDB, $GUI_DISABLE)
+        GUICtrlSetState($chkSmartZapSaveHeroes, $GUI_DISABLE)
+        GUICtrlSetState($txtMinDark, $GUI_DISABLE)
+        $ichkSmartZap = 0
+    EndIf
+EndFunc   ;==>chkSmartLightSpell
+
+Func chkSmartZapDB()
+    If GUICtrlRead($chkSmartZapDB) = $GUI_CHECKED Then
+        $ichkSmartZapDB = 1
+    Else
+        $ichkSmartZapDB = 0
+    EndIf
+EndFunc   ;==>chkSmartZapDB
+
+Func chkSmartZapSaveHeroes()
+    If GUICtrlRead($chkSmartZapSaveHeroes) = $GUI_CHECKED Then
+        $ichkSmartZapSaveHeroes = 1
+    Else
+        $ichkSmartZapSaveHeroes = 0
+    EndIf
+EndFunc   ;==>chkSmartZapSaveHeroes
+
+Func txtMinDark()
+	$itxtMinDE = GUICtrlRead($txtMinDark)
+ EndFunc
+
+; txtMinDark; TheRevenor(July, 2016)
+Func ExtLightSpell()
+	If GUICtrlRead($chkExtLightSpell) = $GUI_CHECKED Then
+		GUICtrlSetState($txtMinDark, $GUI_ENABLE)
+		GUICtrlSetState($chkSmartLightSpell, $GUI_DISABLE)
+		$ichkExtLightSpell = 1
+	Else
+		GUICtrlSetState($chkSmartLightSpell, $GUI_ENABLE)
+		GUICtrlSetState($txtMinDark, $GUI_DISABLE)
+		$ichkExtLightSpell = 0
+	EndIf
+ EndFunc   ;==>GUILightSpell

@@ -710,7 +710,8 @@ Func applyConfig($bRedrawAtExit = True) ;Applies the data from config to the con
 	ElseIf $ichkCloseWaitEnable = 0 Then
 		GUICtrlSetState($chkCloseWaitEnable, $GUI_UNCHECKED)
 		_GUI_Value_STATE("DISABLE", $groupCloseWaitTrain)
-	EndIf
+    EndIf
+	chkCloseWaitEnable()
 	If $ichkCloseWaitTrain = 1 Then
 		GUICtrlSetState($chkCloseWaitTrain, $GUI_CHECKED)
 	ElseIf $ichkCloseWaitTrain = 0 Then
@@ -2613,8 +2614,19 @@ Func applyConfig($bRedrawAtExit = True) ;Applies the data from config to the con
 	;=> chalicucu & demen:  switchcocacc
 	If $ichkSwitchAcc = 1 Then
 	   GUICtrlSetState($chkSwitchAcc, $GUI_CHECKED)
+	   GUICtrlSetState($chkCloseWaitEnable, $GUI_UNCHECKED)
+	   GUICtrlSetState($chkCloseWaitEnable, $GUI_DISABLE)
+		For $i = $chkCloseWaitTrain To $lblCloseWaitRdmPercent
+			GUICtrlSetState($i, $GUI_HIDE)
+		Next
+		For $i = $lbSwitchMode To $lbMapHelp
+			GUICtrlSetState($i, $GUI_SHOW)
+		Next
     Else
 	   GUICtrlSetState($chkSwitchAcc, $GUI_UNCHECKED)
+		For $i = $lbSwitchMode To $lbMapHelp
+ 			GUICtrlSetState($i, $GUI_HIDE)
+ 		Next
     EndIf
 	If $AccRelaxTogether = 1 Then
 	   GUICtrlSetState($chkAccRelax, $GUI_CHECKED)

@@ -344,8 +344,24 @@ EndFunc
 ; Demen & chalicucu Switch Account
 Func chkSwitchAcc()
 	If GUICtrlRead($chkSwitchAcc) = $GUI_CHECKED Then
+		GUICtrlSetState($chkCloseWaitEnable, $GUI_UNCHECKED)
+		GUICtrlSetState($chkCloseWaitEnable, $GUI_DISABLE)
+		For $i = $chkCloseWaitTrain To $lblCloseWaitRdmPercent
+			GUICtrlSetState($i, $GUI_HIDE)
+		Next
+		For $i = $lbSwitchMode To $lbMapHelp
+			GUICtrlSetState($i, $GUI_SHOW)
+		Next
 		$ichkSwitchAcc = 1
 	Else
+		GUICtrlSetState($chkCloseWaitEnable, $GUI_ENABLE)
+		GUICtrlSetState($chkCloseWaitEnable, $GUI_CHECKED)
+		For $i = $chkCloseWaitTrain To $lblCloseWaitRdmPercent
+			GUICtrlSetState($i, $GUI_SHOW)
+		Next
+		For $i = $lbSwitchMode To $lbMapHelp
+			GUICtrlSetState($i, $GUI_HIDE)
+		Next
 		$ichkSwitchAcc = 0
 	EndIf
 	IniWrite($profile, "switchcocacc", "Enable", $ichkSwitchAcc)

@@ -112,7 +112,7 @@ Local $x = 25, $y = 45
 			;GUICtrlSetState(-1, $GUI_CHECKED)
 
 			$y += 30
-			GUICtrlCreateLabel("Switching Mode", $x, $y, 130, 20)
+			$lbSwitchMode = GUICtrlCreateLabel("Switching Mode", $x, $y, 130, 20)
 			$cmbSwitchMode = GUICtrlCreateCombo("", $x + 140, $y - 2, 90, 20, BitOR($CBS_DROPDOWNLIST, $CBS_AUTOHSCROLL))
 			GUICtrlSetTip(-1, "Choose switching mode for play list")
 			GUICtrlSetData(-1, "Shortest Training" & "|" & "Ordered play list" & "|" & "Random")
